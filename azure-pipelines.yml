@@ -21,7 +21,7 @@ variables:
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
   
-  k8sNamespaceForPR: '$(System.pullRequest.sourceBranch)'
+  k8sNamespaceForPR: 'reviewapp-env'
 
 stages:
 - stage: Build
@@ -86,7 +86,7 @@ stages:
     displayName: Deploy job
     pool: default
     
-    environment: 'dsmsapp.$(System.pullRequest.sourceBranch)'
+    environment: 'dsmsapp.$(k8sNamespaceForPR)'
     strategy:
       runOnce:
         deploy:
