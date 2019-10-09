@@ -24,26 +24,9 @@ variables:
   k8sNamespaceForPR: 'reviewapp-env'
 
 stages:
-- stage: Build
-  displayName: Build stage
-  jobs:  
-  - job: Build
-    displayName: Build
-    pool: default
-    steps:
-    - task: Docker@2
-      displayName: Build and push an image to container registry
-      inputs:
-        command: buildAndPush
-        repository: $(imageRepository)
-        dockerfile: $(dockerfilePath)
-        containerRegistry: $(dockerRegistryServiceConnection)
-        tags: |
-          $(tag)
 
 - stage: Deploy
   displayName: Deploy stage
-  dependsOn: Build
   condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/heads/'))
   jobs:
   - deployment: Deploy
@@ -76,7 +59,6 @@ stages:
 # Deploy all PR changes
 - stage: DeployPR
   displayName: Deploy PR review app
-  dependsOn: Build
   condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/pull/'))
   jobs:
   - deployment: Deploy
