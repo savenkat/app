@@ -68,7 +68,6 @@ stages:
 # Deploy all PR changes
 - stage: DeployPR
   displayName: Deploy PR review app
-  condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/pull/'))
   jobs:
   - deployment: Deploy
     displayName: Deploy job
