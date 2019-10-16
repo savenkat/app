@@ -5,7 +5,7 @@ variables:
  
 jobs:
 - deployment: deploy
-  environment: desattir.$(reviewAppResource)
+  environment: desattir.$(System.pullRequest.sourceBranch)
   pool: $(poolName)
   strategy:
     runOnce:
