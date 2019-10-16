@@ -21,4 +21,4 @@ jobs:
             command: get
             arguments: pods
         
-        - script: Write-Host "##vso[task.setvariable variable=GITHUB_COMMENT;]Github automated comment"
+        - powershell: Write-Host "##vso[task.setvariable variable=GITHUB_COMMENT;]Github automated comment"
