@@ -9,9 +9,12 @@ jobs:
   pool: $(poolName)
   strategy:
     runOnce:
-      deploy:
+      pre-deploy:
         steps:
         - reviewApp: default
+        
+      deploy:
+        steps:
         - task: Kubernetes@1
           displayName: 'kubectl get'
           inputs:
