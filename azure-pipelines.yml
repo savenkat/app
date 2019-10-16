@@ -9,7 +9,7 @@ jobs:
   pool: $(poolName)
   strategy:
     runOnce:
-      predeploy:
+      preDeploy:
         steps:
         - reviewApp: default
         
