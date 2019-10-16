@@ -5,7 +5,7 @@ variables:
  
 jobs:
 - deployment: deploy
-  environment: desattir.$(System.pullRequest.sourceBranch)
+  environment: desattir.$(RandomVariable)
   pool: $(poolName)
   strategy:
     runOnce:
