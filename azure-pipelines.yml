@@ -21,4 +21,4 @@ jobs:
             command: get
             arguments: pods
         
-        - script: echo ##vso[task.setvariable variable=GITHUB_COMMENT;]Github automated comment
+        - script: Write-Host "##vso[task.setvariable variable=GITHUB_COMMENT;]Github automated comment"
