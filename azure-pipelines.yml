@@ -12,12 +12,8 @@ jobs:
       deploy:
         steps:
         - reviewApp: default
-        
         - task: Kubernetes@1
-          displayName: 'kubectl get'
+          displayName: 'Create namespace'
           inputs:
-            connectionType: 'Kubernetes Service Connection'
-            namespace: '$(reviewAppResource)'
-            command: get
-            arguments: pods
-        
+            command: create
+            arguments: 'ns $(reviewAppResource) --dry-run -o json | kubectl apply -f -'
