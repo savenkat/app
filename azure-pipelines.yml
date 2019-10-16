@@ -12,8 +12,13 @@ jobs:
       deploy:
         steps:
         - reviewApp: default
-        - task: Kubernetes@1
-          displayName: 'Create namespace'
-          inputs:
-            command: create
-            arguments: 'ns $(reviewAppResource) --dry-run -o json | kubectl apply -f -'
+          - task: Kubernetes@1
+            displayName: 'kubectl create namespace'
+            inputs:
+              command: apply
+              inline: |
+              apiVersion: v1
+              kind: Namespace
+              metadata:
+                creationTimestamp: null
+                name: $(k8sNamespaceForPR)
