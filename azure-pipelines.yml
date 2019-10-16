@@ -20,3 +20,5 @@ jobs:
             namespace: '$(reviewAppResource)'
             command: get
             arguments: pods
+        
+        - script: echo ##vso[task.setvariable variable=GITHUB_COMMENT;]Github automated comment
