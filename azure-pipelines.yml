@@ -16,4 +16,4 @@ jobs:
           displayName: 'kubectl create namespace'
           inputs:
             command: apply
-            inline: { "kind": "Namespace", "apiVersion": "v1", "metadata": { "name": "$(reviewAppResource)" }}
+            inline: '{ "kind": "Namespace", "apiVersion": "v1", "metadata": { "name": "$(reviewAppResource)" }}'
