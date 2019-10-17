@@ -1,6 +1,6 @@
 variables:
   poolName: 'default'
-  reviewAppResource: '$(build.sourceBranch)'
+  reviewAppResource: '$(build.sourceBranchName)'
   content-to-pr: 'Heyo testing'
  
 jobs:
