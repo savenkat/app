@@ -1,11 +1,11 @@
 variables:
   poolName: 'default'
-  reviewAppResource: 'review-env-check'
+  reviewAppResource: '$(build.sourceBranch)'
   content-to-pr: 'Heyo testing'
  
 jobs:
 - deployment: deploy
-  environment: desattir.$(RandomVariable)
+  environment: desattir.$(reviewAppResource)
   pool: $(poolName)
   strategy:
     runOnce:
