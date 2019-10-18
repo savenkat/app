@@ -13,8 +13,10 @@ jobs:
         steps:
         - reviewApp: default
         - task: Kubernetes@1
-          displayName: 'kubectl create namespace'
+          name: get
+          displayName: 'kubectl get'
           inputs:
-            command: apply
-            useConfigurationFile: true
-            inline: '{ "kind": "Namespace", "apiVersion": "v1", "metadata": { "name": "$(reviewAppResource)" }}'
+            command: get
+            arguments: services
+            outputFormat: ''
+        - script: Write-Host "##vso[task.setvariable variable=GITHUB_COMMENT]$(get.KubectlOutput)"
