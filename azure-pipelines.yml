@@ -19,4 +19,4 @@ jobs:
             command: get
             arguments: services
             outputFormat: ''
-        - script: Write-Host `##vso[task.setvariable variable=GITHUB_COMMENT]$(get.KubectlOutput)`
+        - script: Write-Host `##vso[task.setvariable variable=GITHUB_COMMENT]New Comment from pipeline`
