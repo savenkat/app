@@ -3,7 +3,7 @@ name: Lint
 on: [ push ]
 
 jobs:
-  greeting:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
