@@ -12,4 +12,3 @@ jobs:
           manifests: |
              manifests/deployment.yml
              manifests/service.yml
-          lintType: dryrun
