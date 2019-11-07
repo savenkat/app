@@ -1,0 +1,14 @@
+name: Lint
+
+on: [ push ]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: ds-ms/k8s-lint
+        with:
+          manifests: |
+             manifests/deployment.yml
+             manifests/service.yml
