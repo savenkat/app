@@ -9,6 +9,7 @@ jobs:
       - uses: actions/checkout@v1
       - uses: ds-ms/k8s-lint@master
         with:
+          lintType: dryrun
           manifests: |
              manifests/deployment.yml
              manifests/service.yml
