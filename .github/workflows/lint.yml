@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: azure/k8s-lint@releases/v1
+      - uses: azure/k8s-lint@v1
         with:
           manifests: |
              manifests/deployment.yml
